@@ -1,0 +1,1 @@
+web: gunicorn projetoFinanca.wsgi --log-file -

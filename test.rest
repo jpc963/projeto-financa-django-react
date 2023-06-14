@@ -1,0 +1,22 @@
+POST http://127.0.0.1:8000/api/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "jotajota2",
+  "password": "22121046",
+  "email": "joao@gmail.com"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/teste_login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "jotajota2",
+  "password": "22121046"
+}
+
+###

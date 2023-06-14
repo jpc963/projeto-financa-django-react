@@ -1,0 +1,274 @@
+:root {
+    --bg-main: #ecf0f1;
+    --text: #2c3e50;
+    --btn-primary: #3498db;
+    --btn-primary-hover: #2980b9;
+    --btn-secondary: #f6e2c1;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+}
+
+h2 {
+    color: var(--text);
+}
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    height: 5em;
+    background-color: var(--bg-main);
+    color: var(--text);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.navbar-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-items .link-padrao {
+    margin: 0 1.2em;
+}
+
+.navbar-items p {
+    text-decoration: none;
+    color: var(--text);
+    margin: 0 1em;
+}
+
+.link-padrao {
+    align-self: center;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* MAIN SECTION */
+
+.section-main {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+
+/* MAIN SECTION > LISTA */
+
+.lista-index {
+    width: 40%;
+}
+
+.lista-index h2 {
+    text-align: center;
+}
+
+.lista {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-lista-informacoes-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--text);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: .5em 0;
+}
+
+.ultimo-item {
+    border: none;
+}
+
+.item-lista-informacoes-descricao {
+    width: 70%;
+    margin: 0;
+}
+
+.item-lista-informacoes-descricao h3 {
+    margin: 0;
+}
+
+.item-lista-informacoes-descricao span {
+    font-size: .8em;
+}
+
+.item-lista-informacoes-valor {
+    width: 20%;
+}
+
+.total-gasto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.total-gasto a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* LISTAS COMPLETAS */
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista-informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 1em;
+}
+
+.lista-informacoes .link-padrao {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.item-lista-informacoes {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1em 0;
+}
+
+/* REGISTROS */
+
+.novo-registro {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.novo-registro h2 {
+    width: 30%;
+    margin-bottom: 1.7em;
+    background-color: #bdc3c7;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.form-inputs {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form-inputs input {
+    margin: .5em 0;
+    padding: 1em 1em;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+}
+
+.form-inputs input:focus {
+    outline: none;
+}
+
+/* REGISTROS > LOGIN */
+
+.form-inputs form .campo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inputs form .botoes-confirma-volta {
+    width: 100%;
+}
+
+/* BOTOES */
+
+.btn-primary {
+    background-color: var(--btn-primary);
+    color: var(--text);
+    border: none;
+    padding: 1em 1em;
+    border-radius: 0.5em;
+    transition: .5s;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-hover);
+    transition: .5s;
+}
+
+/* BOTOES > NAVBAR */
+
+.navbar-btn div {
+    display: flex;
+    justify-content: space-between;
+    width: 11.5em;
+}
+
+/* BOTOES > FORMS */
+
+.botoes-confirma-volta {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 1em 0;
+}
+
+.novo-registro .botoes-confirma-volta {
+    width: 30%;
+    margin: 1em 0;
+}
+
+.novo-registro .botoes-confirma-volta a {
+    font-size: .9em;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    .section-main {
+        flex-direction: column;
+    }
+
+    .navbar-items,
+    .navbar-btn {
+        display: none;
+    }
+
+    .lista-index {
+        margin-bottom: 1.4em;
+        width: 80%;
+        align-self: center;
+    }
+}
