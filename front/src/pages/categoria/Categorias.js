@@ -1,6 +1,6 @@
 import React from "react"
 
-import ListaCategorias from "../components/categorias/ListaCategorias"
+import ListaCategorias from "../../components/categorias/ListaCategorias"
 
 const Categorias = () => {
 	return (

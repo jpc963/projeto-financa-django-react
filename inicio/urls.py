@@ -10,10 +10,9 @@ urlpatterns = [
 
     path('teste_login', teste_login, name='teste_login'),
     path('register', novo_usuario, name='register'),
-    path('dashboard', dashboard, name='dashboard'),
     path('transacoes', transacoes, name='transacoes'),
     path('nova-transacao', nova_transacao, name='nova_transacao'),
-    path('editar-transacao/<int:pk>', editar_transacao, name='editar_transacao'),
+    path('transacoes/<int:pk>/editar', editar_transacao, name='editar_transacao'),
     path('excluir-transacao/<int:pk>', excluir_transacao, name='excluir_transacao'),
 
     path('categorias', categorias, name='categorias'),

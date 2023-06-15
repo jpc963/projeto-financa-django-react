@@ -1,6 +1,6 @@
 import React from "react"
 
-import ListaTransacoes from "../components/transacoes/ListaTransacoes"
+import ListaTransacoes from "../../components/transacoes/ListaTransacoes"
 
 const Transacoes = () => {
 	return (

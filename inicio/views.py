@@ -4,7 +4,6 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, BasePermission, AllowAny
-
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -52,7 +51,7 @@ def get_routes(request):
             'description': 'Retorna a página para criar uma nova transação'
         },
         {
-            'Endpoint': 'api/editar-transacao/id',
+            'Endpoint': 'api/transacoes/id/editar',
             'method': ['GET', 'PUT'],
             'body': {'data': '', 'descricao': '', 'valor': '', 'criacao': '', 'categoria': ''},
             'description': 'Retorna a página para edição da transação selecionada'
@@ -94,7 +93,6 @@ def get_routes(request):
             'description': 'Retorna todas as transações da categoria selecionada'
         },
     ]
-
     return Response(routes)
 
 
@@ -119,7 +117,6 @@ def teste_login(request):
         return Response({'error': 'Senha incorreta'})
     if serializer.is_valid():
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
-
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -137,14 +134,7 @@ def novo_usuario(request):
             user.save()
             if user:
                 return Response(serializer.data)
-
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def dashboard(request):
-    return Response('Dashboard')
 
 
 @api_view(['GET'])
@@ -153,7 +143,6 @@ def transacoes(request):
     user = request.user
     lista_transacoes = user.transacao_set.all()
     serializer = TransacaoSerializer(lista_transacoes, many=True)
-
     return Response(serializer.data)
 
 
@@ -188,14 +177,15 @@ def nova_transacao(request):
         return Response(serializer.data)
 
 
-@api_view(['GET', 'PUT'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def editar_transacao(request, pk):
-    transacao = Transacao.objects.get(id=pk)
+    user = request.user
+    transacao = user.transacao_set.get(id=pk)
     serializer = TransacaoSerializer(instance=transacao, data=request.data)
+
     if serializer.is_valid():
         serializer.save()
-
     return Response(serializer.data)
 
 
@@ -211,7 +201,6 @@ def categorias(request):
     user = request.user
     lista_categorias = user.categoria_set.all()
     serializer = CategoriaSerializer(lista_categorias, many=True)
-
     return Response(serializer.data)
 
 
@@ -221,7 +210,6 @@ def info_categoria(request, nome):
     categoria = Categoria.objects.get(nome=nome)
     transacoes_da_categoria = Transacao.objects.filter(categoria=categoria)
     serializer = TransacaoSerializer(transacoes_da_categoria, many=True)
-
     return Response(serializer.data)
 
 
@@ -236,19 +224,16 @@ def nova_categoria(request):
         user=user_instance,
     )
     serializer = CategoriaSerializer(categoria, many=False)
-
     return Response(serializer.data)
 
 
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def editar_categoria(request, pk):
-    categoria = Categoria.objects.get(id=pk)
-    serializer = CategoriaSerializer(instance=categoria, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response('Editar categoria')
+    user = request.user
+    categoria = user.categoria_set.get(id=pk)
+    serializer = CategoriaSerializer(categoria, many=False)
+    return Response(serializer.data)
 
 
 @api_view(['DELETE'])

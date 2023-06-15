@@ -1,5 +1,5 @@
 import React from "react"
-import Dashboard from "./Dashboard"
+import Dashboard from "./user/Dashboard"
 
 const Index = () => {
 	if (localStorage.getItem("authTokens") === null) {

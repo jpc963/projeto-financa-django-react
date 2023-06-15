@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
 	let loginUser = async e => {
 		e.preventDefault() // Evita que a página seja recarregada
-		let response = await fetch("api/token/", {
+		let response = await fetch("/api/token/", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 			// O ponto de interrogação é para evitar erro caso o token não exista
 			return
 		}
-		let response = await fetch("api/token/refresh/", {
+		let response = await fetch("/api/token/refresh/", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }) => {
 				updateToken()
 			}
 		}, 240000) // 4 mins
-	}, [authTokens, loading])
+	}, [authTokens, loading, updateToken])
 
 	return <AuthContext.Provider value={contextData}>{loading ? null : children}</AuthContext.Provider>
 }

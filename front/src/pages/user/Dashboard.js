@@ -1,7 +1,7 @@
 import React from "react"
 
-import TransacoesRecentes from "../components/transacoes/TransacoesRecentes"
-import CategoriasMaioresGastos from "../components/categorias/CategoriasMaioresGastos"
+import TransacoesRecentes from "../../components/transacoes/TransacoesRecentes"
+import CategoriasMaioresGastos from "../../components/categorias/CategoriasMaioresGastos"
 
 const Dashboard = () => {
 	return (

@@ -201,6 +201,10 @@ h2 {
     outline: none;
 }
 
+.form-inputs input.error {
+    border: 1px solid red;
+}
+
 /* REGISTROS > LOGIN */
 
 .form-inputs form .campo-form {
