@@ -202,7 +202,7 @@ h2 {
 }
 
 .form-inputs input.error {
-    border: 1px solid red;
+    border: 1px solid #ff6b6b;
 }
 
 /* REGISTROS > LOGIN */

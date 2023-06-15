@@ -121,19 +121,20 @@ def teste_login(request):
 
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
+@permission_classes([BasePermission])
 def novo_usuario(request):
     serializer = UserSerializer(data=request.data)
+    if User.objects.filter(username=request.data['username']).exists():
+        return Response({'error': 'Usuário já existe'}, status=status.HTTP_400_BAD_REQUEST)
+    if User.objects.filter(email=request.data['email']).exists():
+        return Response({'error': 'Email já existe'}, status=status.HTTP_400_BAD_REQUEST)
     if serializer.is_valid():
-        if User.objects.filter(username=request.data['username']).exists():
-            return Response({'error': 'Nome de usuário já existe'})
-        else:
-            serializer.save()
-            user = User.objects.get(username=request.data['username'])
-            user.set_password(request.data['password'])
-            user.save()
-            if user:
-                return Response(serializer.data)
+        serializer.save()
+        user = User.objects.get(username=request.data['username'])
+        user.set_password(request.data['password'])
+        user.save()
+        if user:
+            return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
