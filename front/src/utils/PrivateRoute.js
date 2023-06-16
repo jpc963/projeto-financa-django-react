@@ -8,6 +8,7 @@ import Categorias from "../pages/categoria/Categorias"
 import NovaCategoria from "../components/categorias/NovaCategoria"
 import Dashboard from "../pages/user/Dashboard"
 import EditarTransacao from "../pages/transacao/EditarTransacao"
+import TransacoesCategoria from "../components/categorias/TransacoesCategoria"
 
 const PrivateRoute = ({redirectPath = "/login/", children}) => {
     let {user} = useContext(AuthContext)
@@ -25,9 +26,10 @@ const PrivateRoute = ({redirectPath = "/login/", children}) => {
             <Route path="dashboard" element={<Dashboard/>}/>
             <Route path="transacoes" element={<Transacoes/>}/>
             <Route path="nova-transacao" element={<NovaTransacao/>}/>
-            <Route path="transacoes/:id/editar" element={<EditarTransacao/>}/>
+            <Route path="transacao/:id/editar" element={<EditarTransacao/>}/>
             <Route path="categorias" element={<Categorias/>}/>
             <Route path="nova-categoria" element={<NovaCategoria/>}/>
+            <Route path="categoria/:nome" element={<TransacoesCategoria/>}/>
             <Route path="*" element={<h1>Not Found</h1>}/>
         </Routes>
     )

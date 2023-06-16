@@ -205,6 +205,11 @@ h2 {
     border: 1px solid #ff6b6b;
 }
 
+p.error {
+    color: #ff6b6b;
+    text-align: center;
+}
+
 /* REGISTROS > LOGIN */
 
 .form-inputs form .campo-form {

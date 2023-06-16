@@ -14,13 +14,16 @@ const ListaTransacoes = () => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer " + authTokens.access,
+                'Authorization': "Bearer " + authTokens.access,
             },
         })
         let data = await response.json()
 
         if (response.status === 200) {
-            setTransacoes(data)
+            let transacoesSorteadas = data.sort((a, b) => {
+                return new Date(b.data) - new Date(a.data)
+            })
+            setTransacoes(transacoesSorteadas)
         }
     }
 

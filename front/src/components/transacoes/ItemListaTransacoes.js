@@ -6,7 +6,7 @@ const ItemListaTransacoes = ({transacao}) => {
     return (
         <div className="item-lista-informacoes">
             <div className="item-lista-informacoes-descricao">
-                <Link to={`${transacao.id}/editar`} className="link-padrao">
+                <Link to={`/transacao/${transacao.id}/editar`} className="link-padrao">
                     <h3>{transacao.descricao}</h3>
                 </Link>
             </div>

@@ -40,7 +40,8 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\joaop\\AppData\\Local\\JetBrains\\Toolbox\\apps\\PyCharm-P\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -101,6 +102,13 @@
       <workItem from="1686737205024" duration="6991000" />
       <workItem from="1686750085662" duration="2639000" />
       <workItem from="1686801902703" duration="9866000" />
+      <workItem from="1686824796415" duration="3537000" />
+      <workItem from="1686828600928" duration="183000" />
+      <workItem from="1686848215670" duration="632000" />
+      <workItem from="1686849549055" duration="29000" />
+      <workItem from="1686849604857" duration="846000" />
+      <workItem from="1686884933887" duration="175000" />
+      <workItem from="1686885120696" duration="6984000" />
     </task>
     <servers />
   </component>

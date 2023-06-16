@@ -77,7 +77,7 @@ const RegisterPage = () => {
                                    onChange={(e) => (
                                        setUsuario({...usuario, username: e.target.value})
                                    )}/>
-                            {erroLogin && <p>{erroLogin}</p>}
+                            {erroLogin && <p className='error'>{erroLogin}</p>}
                         </div>
                         <div className="campo-form">
                             <label htmlFor="password">Senha</label>
@@ -85,7 +85,7 @@ const RegisterPage = () => {
                                    onChange={(e) => (
                                        setUsuario({...usuario, password: e.target.value})
                                    )}/>
-                            {erroSenha && <p>{erroSenha}</p>}
+                            {erroSenha && <p className='error'>{erroSenha}</p>}
                         </div>
                         <div className="campo-form">
                             <label htmlFor="email">Email</label>
@@ -93,7 +93,7 @@ const RegisterPage = () => {
                                    onChange={(e) => (
                                        setUsuario({...usuario, email: e.target.value})
                                    )}/>
-                            {erroEmail && <p>{erroEmail}</p>}
+                            {erroEmail && <p className='error'>{erroEmail}</p>}
                         </div>
                         <div className="botoes-confirma-volta">
                             <Link to="/" className="link-padrao">
