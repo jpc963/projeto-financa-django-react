@@ -1,3 +1,7 @@
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/ /*todo arrumar o css completo*/
+
 :root {
     --bg-main: #ecf0f1;
     --text: #2c3e50;

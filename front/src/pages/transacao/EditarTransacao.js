@@ -10,8 +10,8 @@ const EditarTransacao = () => {
     let [erroValor, setErroValor] = useState(null)
     let [erroCategoria, setErroCategoria] = useState(null)
     let transacaoValorRegex = new RegExp('^[0-9]+(\.[0-9]{1,2})?$')
-    let transacaoCategoriaRegex = new RegExp('^[a-zA-Z]{3,}( ?[a-zA-Z]+){1,20}$')
-    let transacaoDescricaoRegex = new RegExp('^[a-zA-Z]{3,}( ?[a-zA-Z]+){1,100}$')
+    let transacaoCategoriaRegex = new RegExp('^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,20}$')
+    let transacaoDescricaoRegex = new RegExp('^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,100}$')
 
     let edicaoCompleta = async (e) => {
         e.preventDefault()
@@ -39,7 +39,7 @@ const EditarTransacao = () => {
             setErroCategoria('Categoria inválida')
         } else {
             await fetch(`/api/transacoes/${transacao.id}/editar`, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: "Bearer " + authTokens.access,
@@ -67,7 +67,7 @@ const EditarTransacao = () => {
             navigate("/login")
         }
 
-        pegarTransacao().then()
+        pegarTransacao()
     }, [user, navigate])
 
     return (

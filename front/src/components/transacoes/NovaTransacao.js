@@ -10,8 +10,8 @@ const NovaTransacao = () => {
     let [erroValor, setErroValor] = useState('')
     let [erroCategoria, setErroCategoria] = useState('')
     let transacaoValorRegex = new RegExp('^[0-9]+(\.[0-9]{1,2})?$')
-    let transacaoCategoriaRegex = new RegExp('^[a-zA-Z]{3,}( ?[a-zA-Z]+){1,20}$')
-    let transacaoDescricaoRegex = new RegExp('^[a-zA-Z]{3,}( ?[a-zA-Z]+){1,100}$')
+    let transacaoCategoriaRegex = new RegExp('^[a-zA-Z0-9]{3,}(\.?[a-zA-Z0-9]+){1,20}$')
+    let transacaoDescricaoRegex = new RegExp('^[a-zA-Z0-9]{3,}(\.?[a-zA-Z0-9]+){1,100}$')
 
     let novaTransacao = async (e) => {
         e.preventDefault()

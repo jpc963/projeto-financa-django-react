@@ -178,13 +178,32 @@ def nova_transacao(request):
         return Response(serializer.data)
 
 
-@api_view(['PUT'])
+@api_view(['PUT', 'POST'])
 @permission_classes([IsAuthenticated])
 def editar_transacao(request, pk):
     user = request.user
+    user_instance = User.objects.get(id=user.id)
+    data = request.data
     transacao = user.transacao_set.get(id=pk)
-    serializer = TransacaoSerializer(instance=transacao, data=request.data)
+    if transacao.categoria != data['categoria']:
+        try:
+            categoria_antiga = user.categoria_set.get(nome=transacao.categoria)
+            categoria_antiga.valor_total -= float(transacao.valor)
+            categoria_antiga.save()
+            categoria = user.categoria_set.get(nome=data['categoria'])
+            categoria.valor_total += float(data['valor'])
+            categoria.save()
 
+        except Categoria.DoesNotExist:
+            Categoria.objects.create(
+                nome=data['categoria'],
+                valor_total=data['valor'],
+                user=user_instance,
+            )
+            print('categoria criada')
+            pass
+
+    serializer = TransacaoSerializer(instance=transacao, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -192,7 +211,7 @@ def editar_transacao(request, pk):
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
-def excluir_transacao(request):  # adicionar pk
+def excluir_transacao(request, pk):
     return Response('Excluir transação')
 
 
@@ -239,7 +258,7 @@ def editar_categoria(request, pk):
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
-def excluir_categoria(request):  # adicionar pk
+def excluir_categoria(request, pk):
     return Response('Excluir categoria')
 
 
