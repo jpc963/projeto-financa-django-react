@@ -38,9 +38,11 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/joaop/Documents/projetosPython/projetoDjangoReact&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\joaop\\AppData\\Local\\JetBrains\\Toolbox\\apps\\PyCharm-P\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;
   }
 }</component>
@@ -112,6 +114,14 @@
       <workItem from="1686903677248" duration="2396000" />
       <workItem from="1686910233789" duration="938000" />
       <workItem from="1686991519154" duration="236000" />
+      <workItem from="1687100404709" duration="400000" />
+      <workItem from="1687100852625" duration="389000" />
+      <workItem from="1687101260701" duration="3906000" />
+      <workItem from="1687182650330" duration="1278000" />
+      <workItem from="1687186374550" duration="552000" />
+      <workItem from="1687255401578" duration="904000" />
+      <workItem from="1687424111843" duration="3913000" />
+      <workItem from="1687433405282" duration="100000" />
     </task>
     <servers />
   </component>

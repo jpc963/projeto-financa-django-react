@@ -63,27 +63,44 @@ const NovaTransacao = () => {
                 <h2>Novo Gasto</h2>
                 <div className="form-inputs">
                     <label htmlFor="descricao">Descrição</label>
-                    <input className={!erroDescricao ? '' : 'error'} maxLength="100" type="text" name="descricao" id="descricao" placeholder="(Max. 100 caracteres)" onChange={e => {
-                        setTransacao({...transacao, descricao: e.target.value})
-                    }}/>
+                    <input className={!erroDescricao ? '' : 'error'}
+                           maxLength="100"
+                           type="text"
+                           name="descricao"
+                           id="descricao"
+                           placeholder="(Max. 100 caracteres)"
+                           onChange={e => {
+                               setTransacao({...transacao, descricao: e.target.value})
+                           }}/>
                     {erroDescricao !== null &&
                         <div className="campo-form">
                             <p className="error">{erroDescricao}</p>
                         </div>
                     }
                     <label htmlFor="valor">Valor</label>
-                    <input className={!erroValor ? '' : 'error'} type="text" name="valor" id="valor" placeholder="R$" onChange={e => {
-                        setTransacao({...transacao, valor: e.target.value})
-                    }}/>
+                    <input className={!erroValor ? '' : 'error'}
+                           type="text"
+                           name="valor"
+                           id="valor"
+                           placeholder="R$"
+                           onChange={e => {
+                               setTransacao({...transacao, valor: e.target.value})
+                           }}/>
                     {erroValor !== null &&
                         <div className="campo-form">
                             <p className="error">{erroValor}</p>
                         </div>
                     }
                     <label htmlFor="categoria">Categoria</label>
-                    <input className={!erroCategoria ? '' : 'error'} maxLength="20" type="text" name="categoria" id="categoria" placeholder="Lazer, Essencial..." onChange={e => {
-                        setTransacao({...transacao, categoria: e.target.value})
-                    }}/>
+                    <input className={!erroCategoria ? '' : 'error'}
+                           maxLength="20"
+                           type="text"
+                           name="categoria"
+                           id="categoria"
+                           placeholder="Lazer, Essencial..."
+                           onChange={e => {
+                               setTransacao({...transacao, categoria: e.target.value})
+                           }}/>
                     {erroCategoria !== null &&
                         <div className="campo-form">
                             <p className="error">{erroCategoria}</p>

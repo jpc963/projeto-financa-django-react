@@ -212,7 +212,18 @@ def editar_transacao(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def excluir_transacao(request, pk):
-    return Response('Excluir transação')
+    user = request.user
+    transacao = user.transacao_set.get(id=pk)
+
+    try:
+        categoria = user.categoria_set.get(nome=transacao.categoria)
+        categoria.valor_total -= float(transacao.valor)
+        categoria.save()
+    except Categoria.DoesNotExist:
+        pass
+
+    transacao.delete()
+    return Response('Transação excluída')
 
 
 @api_view(['GET'])
@@ -256,10 +267,27 @@ def editar_categoria(request, pk):
     return Response(serializer.data)
 
 
-@api_view(['DELETE'])
+@api_view(['DELETE', 'POST'])
 @permission_classes([IsAuthenticated])
 def excluir_categoria(request, pk):
-    return Response('Excluir categoria')
+    user = request.user
+    categoria = user.categoria_set.get(id=pk)
+    transacoes_da_categoria = user.transacao_set.filter(categoria=categoria.nome)
+
+    try:
+        categoria_outros = user.categoria_set.get(nome='Outros')
+    except Categoria.DoesNotExist:
+        categoria_outros = Categoria.objects.create(
+            nome='Outros',
+            user=user,
+        )
+
+    transacoes_da_categoria.update(categoria=categoria_outros.nome)
+    categoria_outros.valor_total += categoria.valor_total
+    categoria_outros.save()
+
+    categoria.delete()
+    return Response('Categoria excluída')
 
 
 @api_view(['GET'])

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect} from "react"
 import AuthContext from "../../context/AuthContext"
 import {Link, useNavigate} from "react-router-dom"
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
                         </div>
                         {erroLogin !== null &&
                             <div className="campo-form">
-                                <p className='error'>{erroLogin}</p>
+                                <p className="error">{erroLogin}</p>
                             </div>
                         }
                         <div className="botoes-confirma-volta">

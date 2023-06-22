@@ -48,9 +48,15 @@ const NovaCategoria = () => {
                 <h2>Nova Categoria</h2>
                 <div className="form-inputs">
                     <label htmlFor="nome">Nome</label>
-                    <input className={!erroNome ? '' : 'error'} maxLength="20" type="text" name="nome" id="nome" placeholder="(Max. 20 caracteres)" onChange={e => {
-                        setCategoria({...categoria, nome: e.target.value})
-                    }}/>
+                    <input className={!erroNome ? '' : 'error'}
+                           maxLength="20"
+                           type="text"
+                           name="nome"
+                           id="nome"
+                           placeholder="(Max. 20 caracteres)"
+                           onChange={e => {
+                               setCategoria({...categoria, nome: e.target.value})
+                           }}/>
                     {erroNome && <p className="error">{erroNome}</p>}
                 </div>
                 <div className="botoes-confirma-volta">

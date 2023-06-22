@@ -34,7 +34,7 @@ const ListaTransacoes = () => {
         }
 
         getListaTransacoes()
-    }, [])
+    }, [user])
 
     return (
         <div className="lista-informacoes">

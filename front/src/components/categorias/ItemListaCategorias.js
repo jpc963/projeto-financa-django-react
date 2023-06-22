@@ -1,18 +1,36 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, {useContext} from "react"
+import {Link, useNavigate} from "react-router-dom"
+import AuthContext from "../../context/AuthContext"
 
-const ItemListaCategorias = ({ categoria }) => {
-	return (
-		<div className="item-lista-informacoes">
-			<div className="item-lista-informacoes-descricao">
-				<Link to={`/categoria/${categoria.nome}/`} className="link-padrao">
-					<h3>{categoria.nome}</h3>
-				</Link>
-			</div>
-			<div className="item-lista-informacoes-valor">
-				<p>R$ {categoria.valor_total}</p>
-			</div>
-		</div>
-	)
+const ItemListaCategorias = ({categoria}) => {
+
+    let {authTokens} = useContext(AuthContext)
+
+    let excluirCategoria = async () => {
+        await fetch(`/api/excluir-categoria/${categoria.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authTokens.access,
+            }
+        })
+        window.location.reload()
+    }
+
+    return (
+        <div className="item-lista-informacoes">
+            <div className="item-lista-informacoes-descricao">
+                <Link to={`/categoria/${categoria.nome}/`} className="link-padrao">
+                    <h3>{categoria.nome}</h3>
+                </Link>
+            </div>
+            <div className="item-lista-informacoes-valor">
+                <p>R$ {categoria.valor_total}</p>
+            </div>
+            <div>
+                <button type="submit" onClick={excluirCategoria}>Excluir</button>
+            </div>
+        </div>
+    )
 }
 export default ItemListaCategorias

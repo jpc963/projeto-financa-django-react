@@ -75,19 +75,36 @@ const EditarTransacao = () => {
             <h2>Editando transação</h2>
             <div className="form-inputs">
                 <label htmlFor="descricao">Descrição</label>
-                <input className={!erroDescricao ? '' : 'error'} maxLength="100" type="text" name="descricao" id="descricao" placeholder={`${transacao.descricao}`} onChange={e => {
-                    setTransacao({...transacao, descricao: e.target.value})
-                }}/>
+                <input className={!erroDescricao ? '' : 'error'}
+                       maxLength="100"
+                       type="text"
+                       name="descricao"
+                       id="descricao"
+                       placeholder={`${transacao.descricao}`}
+                       onChange={e => {
+                           setTransacao({...transacao, descricao: e.target.value})
+                       }}/>
                 {erroDescricao && <p className="error">{erroDescricao}</p>}
                 <label htmlFor="valor">Valor</label>
-                <input className={!erroValor ? '' : 'error'} type="text" name="valor" id="valor" placeholder={`R$ ${transacao.valor}`} onChange={e => {
-                    setTransacao({...transacao, valor: e.target.value})
-                }}/>
+                <input className={!erroValor ? '' : 'error'}
+                       type="text"
+                       name="valor"
+                       id="valor"
+                       placeholder={`R$ ${transacao.valor}`}
+                       onChange={e => {
+                           setTransacao({...transacao, valor: e.target.value})
+                       }}/>
                 {erroValor && <p className="error">{erroValor}</p>}
                 <label htmlFor="categoria">Categoria</label>
-                <input className={!erroCategoria ? '' : 'error'} maxLength="20" type="text" name="categoria" id="categoria" placeholder={`${transacao.categoria}`} onChange={e => {
-                    setTransacao({...transacao, categoria: e.target.value})
-                }}/>
+                <input className={!erroCategoria ? '' : 'error'}
+                       maxLength="20"
+                       type="text"
+                       name="categoria"
+                       id="categoria"
+                       placeholder={`${transacao.categoria}`}
+                       onChange={e => {
+                           setTransacao({...transacao, categoria: e.target.value})
+                       }}/>
                 {erroCategoria && <p className="error">{erroCategoria}</p>}
             </div>
             <div className="botoes-confirma-volta">

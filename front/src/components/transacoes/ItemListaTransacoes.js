@@ -1,7 +1,21 @@
-import React from "react"
+import React, {useContext} from "react"
 import {Link} from "react-router-dom"
+import AuthContext from "../../context/AuthContext"
 
 const ItemListaTransacoes = ({transacao}) => {
+
+    let {authTokens} = useContext(AuthContext)
+
+    let excluirTransacao = async () => {
+        await fetch(`/api/excluir-transacao/${transacao.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authTokens.access,
+            }
+        })
+        window.location.reload()
+    }
 
     return (
         <div className="item-lista-informacoes">
@@ -12,6 +26,9 @@ const ItemListaTransacoes = ({transacao}) => {
             </div>
             <div className="item-lista-informacoes-valor">
                 <p>R$ {transacao.valor}</p>
+            </div>
+            <div>
+                <button type="submit" onClick={excluirTransacao}>Excluir</button>
             </div>
         </div>
     )
