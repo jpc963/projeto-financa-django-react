@@ -44,7 +44,7 @@ const CategoriasMaioresGastos = () => {
 			</div>
 			<div className="total-gasto">
 				<p>Total de categorias: {categorias.length}</p>
-				<Link to="/categorias" className="link-padrao">
+				<Link to="/categorias" className="link-dark">
 					Mais
 				</Link>
 			</div>

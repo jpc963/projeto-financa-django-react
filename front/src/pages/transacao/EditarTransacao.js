@@ -9,9 +9,9 @@ const EditarTransacao = () => {
     let [erroDescricao, setErroDescricao] = useState(null)
     let [erroValor, setErroValor] = useState(null)
     let [erroCategoria, setErroCategoria] = useState(null)
-    let transacaoValorRegex = new RegExp('^[0-9]+(\.[0-9]{1,2})?$')
-    let transacaoCategoriaRegex = new RegExp('^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,20}$')
-    let transacaoDescricaoRegex = new RegExp('^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,100}$')
+    let transacaoValorRegex = new RegExp("^[0-9]+(\.[0-9]{1,2})?$")
+    let transacaoCategoriaRegex = new RegExp("^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,20}$")
+    let transacaoDescricaoRegex = new RegExp("^[a-zA-Z0-9]{3,}( ?[a-zA-Z0-9]+){1,100}$")
 
     let edicaoCompleta = async (e) => {
         e.preventDefault()
@@ -20,28 +20,28 @@ const EditarTransacao = () => {
         setErroCategoria(null)
 
         if (transacao.descricao === undefined) {
-            setErroDescricao('A descrição não pode ficar vazia')
+            setErroDescricao("A descrição não pode ficar vazia")
         } else if (transacao.descricao.length < 3) {
-            setErroDescricao('A descrição deve ter no mínimo 3 caracteres')
+            setErroDescricao("A descrição deve ter no mínimo 3 caracteres")
         } else if (transacao.descricao.length > 100) {
-            setErroDescricao('A descrição não pode ter mais de 100 caracteres')
+            setErroDescricao("A descrição não pode ter mais de 100 caracteres")
         } else if (!transacaoDescricaoRegex.test(transacao.descricao)) {
-            setErroDescricao('Descrição inválida')
+            setErroDescricao("Descrição inválida")
         } else if (transacao.valor === undefined || !transacaoValorRegex.test(transacao.valor) || transacao.valor <= 0) {
-            setErroValor('Valor inválido')
+            setErroValor("Valor inválido")
         } else if (transacao.categoria === undefined) {
-            setErroCategoria('A categoria não pode ficar vazia')
+            setErroCategoria("A categoria não pode ficar vazia")
         } else if (transacao.categoria.length < 3) {
-            setErroCategoria('A categoria deve ter no mínimo 3 caracteres')
+            setErroCategoria("A categoria deve ter no mínimo 3 caracteres")
         } else if (transacao.categoria.length > 20) {
-            setErroCategoria('A categoria não pode ter mais de 20 caracteres')
+            setErroCategoria("A categoria não pode ter mais de 20 caracteres")
         } else if (!transacaoCategoriaRegex.test(transacao.categoria)) {
-            setErroCategoria('Categoria inválida')
+            setErroCategoria("Categoria inválida")
         } else {
             await fetch(`/api/transacoes/${transacao.id}/editar`, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                     Authorization: "Bearer " + authTokens.access,
                 },
                 body: JSON.stringify(transacao)
@@ -51,10 +51,10 @@ const EditarTransacao = () => {
     }
 
     let pegarTransacao = async () => {
-        let response = await fetch('/api/transacoes', {
-            method: 'GET',
+        let response = await fetch("/api/transacoes", {
+            method: "GET",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
                 Authorization: "Bearer " + authTokens.access,
             }
         })
@@ -75,7 +75,7 @@ const EditarTransacao = () => {
             <h2>Editando transação</h2>
             <div className="form-inputs">
                 <label htmlFor="descricao">Descrição</label>
-                <input className={!erroDescricao ? '' : 'error'}
+                <input className={!erroDescricao ? "" : "error"}
                        maxLength="100"
                        type="text"
                        name="descricao"
@@ -86,7 +86,7 @@ const EditarTransacao = () => {
                        }}/>
                 {erroDescricao && <p className="error">{erroDescricao}</p>}
                 <label htmlFor="valor">Valor</label>
-                <input className={!erroValor ? '' : 'error'}
+                <input className={!erroValor ? "" : "error"}
                        type="text"
                        name="valor"
                        id="valor"
@@ -96,7 +96,7 @@ const EditarTransacao = () => {
                        }}/>
                 {erroValor && <p className="error">{erroValor}</p>}
                 <label htmlFor="categoria">Categoria</label>
-                <input className={!erroCategoria ? '' : 'error'}
+                <input className={!erroCategoria ? "" : "error"}
                        maxLength="20"
                        type="text"
                        name="categoria"
@@ -108,10 +108,10 @@ const EditarTransacao = () => {
                 {erroCategoria && <p className="error">{erroCategoria}</p>}
             </div>
             <div className="botoes-confirma-volta">
-                <Link to="/dashboard" className="link-padrao">
+                <Link to="/dashboard" className="link-dark">
                     Cancelar
                 </Link>
-                <button className="btn-primary" onClick={edicaoCompleta}>
+                <button className="btn-primary text-white" onClick={edicaoCompleta}>
                     Concluído
                 </button>
             </div>

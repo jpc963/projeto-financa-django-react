@@ -20,7 +20,7 @@ const ItemListaCategorias = ({categoria}) => {
     return (
         <div className="item-lista-informacoes">
             <div className="item-lista-informacoes-descricao">
-                <Link to={`/categoria/${categoria.nome}/`} className="link-padrao">
+                <Link to={`/categoria/${categoria.nome}/`} className="link-dark">
                     <h3>{categoria.nome}</h3>
                 </Link>
             </div>
@@ -28,7 +28,7 @@ const ItemListaCategorias = ({categoria}) => {
                 <p>R$ {categoria.valor_total}</p>
             </div>
             <div>
-                <button type="submit" onClick={excluirCategoria}>Excluir</button>
+                <button className='btn-primary text-white' type="submit" onClick={excluirCategoria}>Excluir</button>
             </div>
         </div>
     )

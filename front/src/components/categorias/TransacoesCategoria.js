@@ -50,7 +50,7 @@ const TransacoesCategoria = () => {
         <div className="lista-informacoes">
             <h2>Transações de {categoriaParam.nome}</h2>
             <div className="botoes-confirma-volta">
-                <Link to="/categorias" className="link-padrao">
+                <Link to="/categorias" className="link-dark">
                     Voltar
                 </Link>
             </div>

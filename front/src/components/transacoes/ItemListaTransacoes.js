@@ -8,10 +8,10 @@ const ItemListaTransacoes = ({transacao}) => {
 
     let excluirTransacao = async () => {
         await fetch(`/api/excluir-transacao/${transacao.id}`, {
-            method: 'DELETE',
+            method: "DELETE",
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + authTokens.access,
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + authTokens.access,
             }
         })
         window.location.reload()
@@ -20,7 +20,7 @@ const ItemListaTransacoes = ({transacao}) => {
     return (
         <div className="item-lista-informacoes">
             <div className="item-lista-informacoes-descricao">
-                <Link to={`/transacao/${transacao.id}/editar`} className="link-padrao">
+                <Link to={`/transacao/${transacao.id}/editar`} className="link-dark">
                     <h3>{transacao.descricao}</h3>
                 </Link>
             </div>
@@ -28,7 +28,7 @@ const ItemListaTransacoes = ({transacao}) => {
                 <p>R$ {transacao.valor}</p>
             </div>
             <div>
-                <button type="submit" onClick={excluirTransacao}>Excluir</button>
+                <button className="btn-primary text-white" type="submit" onClick={excluirTransacao}>Excluir</button>
             </div>
         </div>
     )

@@ -40,7 +40,7 @@ const ListaTransacoes = () => {
         <div className="lista-informacoes">
             <h2>Transações</h2>
             <div className="botoes-confirma-volta">
-                <Link to="/dashboard" className="link-padrao">
+                <Link to="/dashboard" className="link-dark">
                     Voltar
                 </Link>
             </div>

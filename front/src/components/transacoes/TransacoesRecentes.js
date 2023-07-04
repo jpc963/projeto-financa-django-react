@@ -61,7 +61,7 @@ const TransacoesRecentes = () => {
             </div>
             <div className="total-gasto">
                 <p>Total gasto: R$ {valorTotal.toFixed(2)}</p>
-                <Link to="/transacoes" className="link-padrao">
+                <Link to="/transacoes" className="link-dark">
                     Mais
                 </Link>
             </div>

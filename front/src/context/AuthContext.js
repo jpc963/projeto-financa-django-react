@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem("authTokens", JSON.stringify(data))
             navigate("/dashboard")
         } else {
-            setErroLogin('Usuário ou senha incorretos')
+            setErroLogin("Usuário ou senha incorretos")
         }
     }
 
@@ -60,7 +60,6 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null)
         setUser(null)
         localStorage.removeItem("authTokens")
-        navigate("/login")
     }
 
     let contextData = {

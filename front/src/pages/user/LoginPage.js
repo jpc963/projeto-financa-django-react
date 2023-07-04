@@ -4,13 +4,13 @@ import {Link, useNavigate} from "react-router-dom"
 
 const LoginPage = () => {
     let navigate = useNavigate()
-    let {loginUser, user, erroLogin} = useContext(AuthContext)
+    let {loginUser, user, erroLogin, authTokens} = useContext(AuthContext)
 
     useEffect(() => {
         if (user) {
             navigate("/dashboard")
         }
-    }, [user, navigate])
+    }, [])
 
     return (
         <div>

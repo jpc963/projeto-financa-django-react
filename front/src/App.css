@@ -1,12 +1,7 @@
-/*@tailwind base;*/
-/*@tailwind components;*/
-/*@tailwind utilities;*/ /*todo arrumar o css completo*/
-
 :root {
-    --bg-main: #ecf0f1;
     --text: #2c3e50;
-    --btn-primary: #3498db;
-    --btn-primary-hover: #2980b9;
+    --btn-primary: #3E1191;
+    --btn-primary-hover: #43129E;
     --btn-secondary: #f6e2c1;
 }
 
@@ -18,51 +13,50 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-main);
+    background-color: #ecf0f1;
 }
 
 h2 {
     color: var(--text);
 }
 
+a {
+    text-decoration: none;
+}
+
 /* NAVBAR */
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
-    height: 5em;
-    background-color: var(--bg-main);
-    color: var(--text);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+header {
+    height: 5rem;
+    background-color: #2B1464;
 }
 
-.navbar-brand {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-.navbar-items {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-items .link-padrao {
-    margin: 0 1.2em;
-}
-
-.navbar-items p {
+header a {
     text-decoration: none;
-    color: var(--text);
-    margin: 0 1em;
 }
 
-.link-padrao {
-    align-self: center;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.7);
+.navbar-buttons button {
+    background-color: var(--btn-primary);
+}
+
+.navbar-buttons button:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+.bi-list {
+    cursor: pointer;
+}
+
+.navbar-offcanvas {
+    color: #fff;
+    text-align: center;
+    background-color: var(--btn-primary-hover);
+}
+
+/* INDEX */
+
+.main-banner {
+    background-color: #805DF3;
 }
 
 /* MAIN SECTION */
@@ -269,14 +263,9 @@ p.error {
 
 /* MEDIA QUERIES */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .section-main {
         flex-direction: column;
-    }
-
-    .navbar-items,
-    .navbar-btn {
-        display: none;
     }
 
     .lista-index {

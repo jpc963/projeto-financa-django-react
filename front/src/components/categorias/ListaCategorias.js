@@ -37,11 +37,11 @@ const ListaCategorias = () => {
         <div className="lista-informacoes">
             <h2>Categorias</h2>
             <div className="botoes-confirma-volta">
-                <Link to="/dashboard" className="link-padrao">
+                <Link to="/dashboard" className="link-dark">
                     Voltar
                 </Link>
                 <Link to="/nova-categoria">
-                    <button className="btn-primary">Nova Categoria</button>
+                    <button className="btn-primary text-white">Nova Categoria</button>
                 </Link>
             </div>
             {categorias.map((categoria, index) => (
