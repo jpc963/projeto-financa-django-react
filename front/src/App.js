@@ -4,7 +4,7 @@ import PrivateRoute from "./utils/PrivateRoute"
 import AuthContext, {AuthProvider} from "./context/AuthContext"
 
 import "bootstrap/dist/css/bootstrap.css"
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import "bootstrap-icons/font/bootstrap-icons.css"
 import "./App.css"
 
 import Navbar from "./components/index/Navbar"

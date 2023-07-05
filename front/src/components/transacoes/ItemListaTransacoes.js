@@ -5,6 +5,9 @@ import AuthContext from "../../context/AuthContext"
 const ItemListaTransacoes = ({transacao}) => {
 
     let {authTokens} = useContext(AuthContext)
+    let formatData = transacao => {
+        return `${transacao.data.slice(8, 10)}/${transacao.data.slice(5, 7)}/${transacao.data.slice(0, 4)}`
+    }
 
     let excluirTransacao = async () => {
         await fetch(`/api/excluir-transacao/${transacao.id}`, {
@@ -18,18 +21,15 @@ const ItemListaTransacoes = ({transacao}) => {
     }
 
     return (
-        <div className="item-lista-informacoes">
-            <div className="item-lista-informacoes-descricao">
-                <Link to={`/transacao/${transacao.id}/editar`} className="link-dark">
-                    <h3>{transacao.descricao}</h3>
+        <div className="d-flex justify-content-around border-bottom py-4 lista-informacoes">
+            <div className="d-flex justify-content-between col-5 col-lg-8">
+                <Link to={`/transacao/${transacao.id}/editar`} className="link-dark text-decoration-none align-self-center">
+                    <span className="fs-4">{transacao.descricao}</span>
+                    <span className="fs-6 d-none d-lg-block">{formatData(transacao)}</span>
                 </Link>
+                <span className="align-self-center d-none d-block">R$ {transacao.valor}</span>
             </div>
-            <div className="item-lista-informacoes-valor">
-                <p>R$ {transacao.valor}</p>
-            </div>
-            <div>
-                <button className="btn-primary text-white" type="submit" onClick={excluirTransacao}>Excluir</button>
-            </div>
+            <button className="btn-primary py-2 h-100 align-self-center" type="submit" onClick={excluirTransacao}>Excluir</button>
         </div>
     )
 }

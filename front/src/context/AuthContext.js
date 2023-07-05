@@ -35,7 +35,6 @@ export const AuthProvider = ({children}) => {
 
     let updateToken = async () => {
         if (!authTokens?.refresh) {
-            // O ponto de interrogação é para evitar erro caso o token não exista
             return
         }
         let response = await fetch("/api/token/refresh/", {
@@ -76,11 +75,11 @@ export const AuthProvider = ({children}) => {
         }
 
         setTimeout(() => {
-            if (authTokens) {
+            if (authTokens !== null) {
                 updateToken()
             }
         }, 240000) // 4 mins
-    }, [authTokens, loading, updateToken])
+    }, [])
 
     return <AuthContext.Provider value={contextData}>{loading ? null : children}</AuthContext.Provider>
 }

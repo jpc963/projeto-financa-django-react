@@ -14,7 +14,7 @@ const ListaTransacoes = () => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                'Authorization': "Bearer " + authTokens.access,
+                "Authorization": "Bearer " + authTokens.access,
             },
         })
         let data = await response.json()
@@ -37,16 +37,20 @@ const ListaTransacoes = () => {
     }, [user])
 
     return (
-        <div className="lista-informacoes">
-            <h2>Transações</h2>
-            <div className="botoes-confirma-volta">
-                <Link to="/dashboard" className="link-dark">
-                    Voltar
-                </Link>
+        <div className="d-flex justify-content-center pt-5">
+            <div className="flex-column col-11 col-md-6">
+                <div className="text-center dashboard-stats-title pt-4 pb-3">
+                    <h2 className="fs-2">Transações</h2>
+                </div>
+                <div className="dashboard-stats-info">
+                    {transacoes.map((transacao, index) => (
+                        <ItemListaTransacoes key={index} transacao={transacao}/>
+                    ))}
+                    <div className="d-flex justify-content-center py-4">
+                        <span>Total de transações: {transacoes.length}</span>
+                    </div>
+                </div>
             </div>
-            {transacoes.map((transacao, index) => (
-                <ItemListaTransacoes key={index} transacao={transacao}/>
-            ))}
         </div>
     )
 }

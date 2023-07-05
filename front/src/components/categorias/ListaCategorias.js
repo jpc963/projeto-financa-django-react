@@ -34,19 +34,22 @@ const ListaCategorias = () => {
     }, [user])
 
     return (
-        <div className="lista-informacoes">
-            <h2>Categorias</h2>
-            <div className="botoes-confirma-volta">
-                <Link to="/dashboard" className="link-dark">
-                    Voltar
-                </Link>
-                <Link to="/nova-categoria">
-                    <button className="btn-primary text-white">Nova Categoria</button>
-                </Link>
+        <div className="d-flex justify-content-center pt-5">
+            <div className="flex-column col-11 col-md-6">
+                <div className="text-center dashboard-stats-title pt-4 pb-3">
+                    <h2 className="fs-2">Categorias</h2>
+                </div>
+                <div className="dashboard-stats-info">
+                    {categorias.map((categoria, index) => (
+                        <ItemListaCategorias key={index} categoria={categoria}/>
+                    ))}
+                    <div className="d-flex justify-content-center py-4">
+                        <Link to="/nova-categoria" className='text-dark'>
+                            Nova Categoria
+                        </Link>
+                    </div>
+                </div>
             </div>
-            {categorias.map((categoria, index) => (
-                <ItemListaCategorias key={index} categoria={categoria}/>
-            ))}
         </div>
     )
 }

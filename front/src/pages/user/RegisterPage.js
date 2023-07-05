@@ -6,9 +6,9 @@ const RegisterPage = () => {
     let navigate = useNavigate()
     let {user} = useContext(AuthContext)
     const [usuario, setUsuario] = useState({})
-    const [erroLogin, setErroLogin] = useState('')
-    const [erroSenha, setErroSenha] = useState('')
-    const [erroEmail, setErroEmail] = useState('')
+    const [erroLogin, setErroLogin] = useState("")
+    const [erroSenha, setErroSenha] = useState("")
+    const [erroEmail, setErroEmail] = useState("")
     const usernameRegex = /^[a-zA-Z0-9]+$/
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
 
@@ -37,11 +37,11 @@ const RegisterPage = () => {
         } else if (!emailRegex.test(usuario.email)) {
             setErroEmail("Email inválido")
         } else {
-            setErroLogin('')
-            setErroSenha('')
-            setErroEmail('')
+            setErroLogin("")
+            setErroSenha("")
+            setErroEmail("")
 
-            let response = await fetch('api/register', {
+            let response = await fetch("api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -66,42 +66,51 @@ const RegisterPage = () => {
     }, [user, navigate])
 
     return (
-        <div>
-            <div className="novo-registro">
-                <h2>Cadastro</h2>
-                <div className="form-inputs">
+        <div className="d-flex justify-content-center">
+            <div className="formulario col-10 col-md-8 col-lg-6 col-xxl-5 shadow-sm">
+                <div className="dashboard-stats-title pt-4 pb-3">
+                    <h2 className="text-center text-white">Registro</h2>
+                </div>
+                <div className="dashboard-stats-info">
                     <form onSubmit={userRegister}>
-                        <div className="campo-form">
-                            <label htmlFor="username">Usuário</label>
-                            <input className={!erroLogin ? '' : 'error'} maxLength="16" type="text" name="username" id="username" placeholder="Digite seu usuário"
+                        <div className="d-flex flex-column">
+                            <label htmlFor="username" className="fs-5">Usuário</label>
+                            <input className="p-2 rounded bg-white"
+                                   maxLength="16" type="text" name="username" id="username" placeholder="Nome de usuário"
                                    onChange={(e) => (
                                        setUsuario({...usuario, username: e.target.value})
                                    )}/>
-                            {erroLogin && <p className='error'>{erroLogin}</p>}
+                            {erroLogin && <p className="error">{erroLogin}</p>}
                         </div>
-                        <div className="campo-form">
-                            <label htmlFor="password">Senha</label>
-                            <input className={!erroSenha ? '' : 'error'} maxLength="16" type="password" name="password" id="password" placeholder="Digite sua senha"
+                        <div className="d-flex flex-column">
+                            <label htmlFor="password" className="fs-5">Senha</label>
+                            <input className="p-2 rounded bg-white"
+                                   maxLength="16" type="password" name="password" id="password" placeholder="Digite sua senha"
                                    onChange={(e) => (
                                        setUsuario({...usuario, password: e.target.value})
                                    )}/>
-                            {erroSenha && <p className='error'>{erroSenha}</p>}
+                            {erroSenha && <p className="error">{erroSenha}</p>}
                         </div>
-                        <div className="campo-form">
-                            <label htmlFor="email">Email</label>
-                            <input className={!erroEmail ? '' : 'error'} maxLength="40" type="email" name="email" id="email" placeholder="Digite seu email"
+                        <div className="d-flex flex-column">
+                            <label htmlFor="email" className="fs-5">Email</label>
+                            <input className="p-2 rounded bg-white"
+                                   maxLength="40" type="email" name="email" id="email" placeholder="Digite seu email"
                                    onChange={(e) => (
                                        setUsuario({...usuario, email: e.target.value})
                                    )}/>
-                            {erroEmail && <p className='error'>{erroEmail}</p>}
+                            {erroEmail && <p className="error">{erroEmail}</p>}
                         </div>
-                        <div className="botoes-confirma-volta">
-                            <Link to="/" className="link-padrao">
-                                Voltar
-                            </Link>
-                            <button type="submit" className="btn-primary">
-                                Concluído
-                            </button>
+                        <div className="d-flex flex-column flex-lg-row align-items-center p-0">
+                            <div className="text-center col-12 col-lg-7 order-2 order-lg-0 formulario-link">
+                                <Link to="/login" className="link-dark">
+                                    Já possui uma conta? <span className="text-decoration-underline">Entrar</span>
+                                </Link>
+                            </div>
+                            <div className="col-12 col-lg justify-content-end d-flex">
+                                <button type="submit" className="btn-primary">
+                                    Concluído
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

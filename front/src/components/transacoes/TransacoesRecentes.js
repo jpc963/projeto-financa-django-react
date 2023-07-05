@@ -7,7 +7,6 @@ const TransacoesRecentes = () => {
     let {authTokens} = useContext(AuthContext)
     let [transacoes, setTransacoes] = useState([])
     let [valorTotal, setValorTotal] = useState(0)
-    let [ultimoItemIndex, setUltimoItemIndex] = useState(null)
 
     let getListaTransacoes = async () => {
         if (!authTokens) {
@@ -27,7 +26,6 @@ const TransacoesRecentes = () => {
         })
         let transacoes_recentes = transacoesSorteadas.slice(0, 4)
         setTransacoes(transacoes_recentes)
-        setUltimoItemIndex(transacoes_recentes.length - 1)
         setValorTotal(data.reduce((total, transacao) => total + transacao.valor, 0))
     }
 
@@ -35,35 +33,35 @@ const TransacoesRecentes = () => {
         getListaTransacoes()
     }, [])
 
-    let lasItem = index => {
-        return index === ultimoItemIndex ? "ultimo-item" : ""
-    }
-
     let formatData = transacao => {
         return `${transacao.data.slice(8, 10)}/${transacao.data.slice(5, 7)}/${transacao.data.slice(0, 4)}`
     }
 
     return (
-        <div>
-            <h2>Transações Recentes</h2>
-            <div className="lista">
+        <div className="dashboard-stats shadow-sm">
+            <div className="dashboard-stats-title pt-4 pb-3">
+                <h2 className="text-center fs-3">Transações Recentes</h2>
+            </div>
+            <div className="dashboard-stats-info">
                 {transacoes.map((transacao, index) => (
-                    <div className={`item-lista-informacoes-index ${lasItem(index)}`} key={index}>
-                        <div className="item-lista-informacoes-descricao">
-                            <h3>{transacao.descricao}</h3>
-                            <span>{formatData(transacao)}</span>
-                        </div>
-                        <div className="item-lista-informacoes-valor">
-                            <p>R$ {transacao.valor.toFixed(2)}</p>
+                    <div className="border-bottom">
+                        <div className="d-flex justify-content-around" key={index}>
+                            <div className="d-flex flex-column align-center py-3">
+                                <span className="fw-medium fs-4">{transacao.descricao}</span>
+                                <span className="fs-6">{formatData(transacao)}</span>
+                            </div>
+                            <div className="d-flex">
+                                <span className="align-self-center">R$ {transacao.valor.toFixed(2)}</span>
+                            </div>
                         </div>
                     </div>
                 ))}
-            </div>
-            <div className="total-gasto">
-                <p>Total gasto: R$ {valorTotal.toFixed(2)}</p>
-                <Link to="/transacoes" className="link-dark">
-                    Mais
-                </Link>
+                <div className="d-flex justify-content-around py-4">
+                    <span>Total gasto: R$ {valorTotal.toFixed(2)}</span>
+                    <Link to="/transacoes" className="text-black text-decoration-underline">
+                        Mais
+                    </Link>
+                </div>
             </div>
         </div>
     )
