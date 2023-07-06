@@ -65,7 +65,7 @@ header a {
 /* LOGIN / REGISTER */
 
 .formulario {
-    margin-top: 5rem;
+    margin-top: 4rem;
     border: none;
     border-radius: 12px;
 }
@@ -75,7 +75,7 @@ header a {
 }
 
 .formulario div label {
-    margin-bottom: .5rem;
+    margin-bottom: .3rem;
 }
 
 .formulario div input {
@@ -129,9 +129,19 @@ header a {
 
 /* MEDIA QUERIES */
 
-@media (max-width: 990px) {
+@media (max-width: 1000px) {
     .formulario {
         margin-top: 3rem;
+    }
+
+    .formulario div button {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .formulario {
+        margin-top: 1rem;
     }
 
     .formulario div button {

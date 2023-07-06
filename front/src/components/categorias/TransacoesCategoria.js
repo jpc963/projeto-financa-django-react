@@ -1,13 +1,12 @@
 import React, {useState, useEffect, useContext} from "react"
 import AuthContext from "../../context/AuthContext"
-import {Link, useNavigate, useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import ItemListaTransacoes from "../transacoes/ItemListaTransacoes"
 
 const TransacoesCategoria = () => {
     let navigate = useNavigate()
     let {user, authTokens} = useContext(AuthContext)
     let [transacoes, setTransacoes] = useState([])
-    let [categoria, setCategoria] = useState({})
     let categoriaParam = useParams()
 
 
@@ -20,8 +19,6 @@ const TransacoesCategoria = () => {
             }
         })
         if (response.status === 200) {
-            let data = await response.json()
-            setCategoria(data)
             getTransacoes()
         }
     }

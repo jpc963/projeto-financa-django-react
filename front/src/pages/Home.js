@@ -1,5 +1,4 @@
-import React, {useContext, useEffect} from "react"
-import AuthContext from "../context/AuthContext"
+import React from "react"
 import Dashboard from "./user/Dashboard"
 import MainBannerImg from "../assets/imgs/main-banner-img.png"
 
@@ -12,7 +11,7 @@ const Home = () => {
                     <p className="fw-semibold">Cuidar do seu dinheiro pode ser simples. Com o Finance, você organiza e planeja sua vida financeira em um único lugar.</p>
                 </div>
                 <div>
-                    <img src={MainBannerImg} alt="Main Banner image"/>
+                    <img src={MainBannerImg} alt="Main Banner"/>
                 </div>
             </section>
         )

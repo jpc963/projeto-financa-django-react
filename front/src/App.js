@@ -10,7 +10,7 @@ import "./App.css"
 import Navbar from "./components/index/Navbar"
 import Home from "./pages/Home"
 import LoginPage from "./pages/user/LoginPage"
-import RegisterPage from "./pages/user/RegisterPage"
+import RegisterPageTs from "./pages/user/RegisterPage.tsx"
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
                         <Navbar/>
                         <Routes>
                             <Route index element={<Home/>}/>
-                            <Route path="/registro" element={<RegisterPage/>}/>
+                            <Route path="/registro" element={<RegisterPageTs/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="/*" element={<PrivateRoute usuario={useContext(AuthContext)} redirectPath="/login"/>}/>
                             <Route path="*" element={<h1>Not Found</h1>}/>

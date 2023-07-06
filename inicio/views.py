@@ -125,9 +125,9 @@ def teste_login(request):
 def novo_usuario(request):
     serializer = UserSerializer(data=request.data)
     if User.objects.filter(username=request.data['username']).exists():
-        return Response({'error': 'Usuário já existe'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': "Usuário já existe"}, status=status.HTTP_400_BAD_REQUEST)
     if User.objects.filter(email=request.data['email']).exists():
-        return Response({'error': 'Email já existe'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': "Email já existe"}, status=status.HTTP_400_BAD_REQUEST)
     if serializer.is_valid():
         serializer.save()
         user = User.objects.get(username=request.data['username'])

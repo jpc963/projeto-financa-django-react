@@ -20,7 +20,7 @@ const TransacoesRecentes = () => {
                 Authorization: "Bearer " + String(authTokens.access),
             },
         })
-        let data = await response.json().then(organizarTransacoes)
+        await response.json().then(organizarTransacoes)
     }
 
     let organizarTransacoes = (data) => {
