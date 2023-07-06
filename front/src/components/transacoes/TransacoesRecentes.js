@@ -20,7 +20,10 @@ const TransacoesRecentes = () => {
                 Authorization: "Bearer " + String(authTokens.access),
             },
         })
-        let data = await response.json()
+        let data = await response.json().then(organizarTransacoes)
+    }
+
+    let organizarTransacoes = (data) => {
         let transacoesSorteadas = data.sort((a, b) => {
             return new Date(b.data) - new Date(a.data)
         })

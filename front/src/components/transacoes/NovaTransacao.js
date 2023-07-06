@@ -61,7 +61,7 @@ const NovaTransacao = () => {
         <div className="d-flex justify-content-center">
             <div className="formulario col-10 col-md-8 col-lg-6 col-xxl-5 shadow-sm">
                 <div className="dashboard-stats-title pt-4 pb-3">
-                    <h2 className="text-center text-white">Novo gasto</h2>
+                    <h3 className="text-center text-white">Novo gasto</h3>
                 </div>
                 <div className="dashboard-stats-info">
                     <div className="d-flex flex-column">
@@ -110,7 +110,7 @@ const NovaTransacao = () => {
                             </Link>
                         </div>
                         <div className="col-12 col-lg">
-                            <button type="submit" className="btn-primary">
+                            <button onClick={novaTransacao} type="submit" className="btn-primary">
                                 Concluído
                             </button>
                         </div>

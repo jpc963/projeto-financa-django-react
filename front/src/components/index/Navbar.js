@@ -16,7 +16,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 {user && (
-                    <div className="d-none d-lg-flex gap-4">
+                    <div className="d-none d-lg-flex gap-5">
                         <Link to="/dashboard" className="text-white">
                             Home
                         </Link>

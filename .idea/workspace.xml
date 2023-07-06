@@ -20,6 +20,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -30,22 +33,29 @@
     <option name="showScratchesAndConsoles" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/joaop/Documents/projetosPython/projetoIfoodBootstrap&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\joaop\\AppData\\Local\\JetBrains\\Toolbox\\apps\\PyCharm-P\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/joaop/Downloads/Arquivos Backup/Programação/hookformtest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "C:\\Users\\joaop\\AppData\\Local\\JetBrains\\Toolbox\\apps\\PyCharm-P\\ch-0\\231.9011.38\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\joaop\Documents\projetosPython\projetoFinanca\front" />
@@ -58,7 +68,7 @@
       <recent name="C:\Users\joaop\Documents\GitHub\projeto-financa-django-react\front\src\pages\categoria" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.RegisterPage.js">
+  <component name="RunManager" selected="Django Server.projetoFinanca">
     <configuration name="RegisterPage.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/front/src/pages/user/RegisterPage.js" working-dir="$PROJECT_DIR$/front/src/pages/user">
       <method v="2" />
     </configuration>
@@ -127,6 +137,9 @@
       <workItem from="1688249945387" duration="192000" />
       <workItem from="1688437391044" duration="7470000" />
       <workItem from="1688519724012" duration="23669000" />
+      <workItem from="1688562067922" duration="111000" />
+      <workItem from="1688562210618" duration="2278000" />
+      <workItem from="1688603405424" duration="7584000" />
     </task>
     <servers />
   </component>
