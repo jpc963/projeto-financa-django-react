@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form"
 import {z} from "zod"
 import {zodResolver} from "@hookform/resolvers/zod"
 
-const createUserFormSchema = z.object({
+const schema = z.object({
     username: z.string()
         .nonempty("O nome de usuário é obrigatório")
         .min(5, "O nome de usuário deve ter mais de 5 caracteres")
@@ -33,17 +33,17 @@ const createUserFormSchema = z.object({
         .regex(/^[a-zA-Z0-9]+$/, "A confirmação de senha deve conter apenas letras e números")
 })
 
-type CreateUserFormData = z.infer<typeof createUserFormSchema>
+type FormData = z.infer<typeof schema>
 
 const RegisterPage = () => {
     let navigate = useNavigate()
     let {user} = useContext(AuthContext)
-    const {register, handleSubmit, formState: {errors}} = useForm<CreateUserFormData>({
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
         mode: "onBlur",
-        resolver: zodResolver(createUserFormSchema)
+        resolver: zodResolver(schema)
     })
 
-    let userRegister = async (userData: CreateUserFormData) => {
+    let userRegister = async (userData: FormData) => {
         let response = await fetch("api/register", {
             method: "POST",
             headers: {

@@ -4,15 +4,11 @@ import {Link, useNavigate} from "react-router-dom"
 
 const TransacoesRecentes = () => {
     let navigate = useNavigate()
-    let {authTokens} = useContext(AuthContext)
+    let {user, authTokens} = useContext(AuthContext)
     let [transacoes, setTransacoes] = useState([])
     let [valorTotal, setValorTotal] = useState(0)
 
     let getListaTransacoes = async () => {
-        if (!authTokens) {
-            navigate("/login")
-            return
-        }
         let response = await fetch("api/transacoes", {
             method: "GET",
             headers: {
@@ -23,7 +19,7 @@ const TransacoesRecentes = () => {
         await response.json().then(organizarTransacoes)
     }
 
-    let organizarTransacoes = (data) => {
+    let organizarTransacoes = async (data) => {
         let transacoesSorteadas = data.sort((a, b) => {
             return new Date(b.data) - new Date(a.data)
         })
@@ -33,8 +29,12 @@ const TransacoesRecentes = () => {
     }
 
     useEffect(() => {
-        getListaTransacoes()
-    }, [])
+        if (!user) {
+            navigate("/login")
+        } else {
+            getListaTransacoes()
+        }
+    }, [user, navigate])
 
     let formatData = transacao => {
         return `${transacao.data.slice(8, 10)}/${transacao.data.slice(5, 7)}/${transacao.data.slice(0, 4)}`

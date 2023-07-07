@@ -3,11 +3,11 @@ import {Routes, Route} from "react-router-dom"
 import AuthContext from "../context/AuthContext"
 
 import Transacoes from "../pages/transacao/Transacoes"
-import NovaTransacao from "../components/transacoes/NovaTransacao"
+import NovaTransacao from "../pages/transacao/NovaTransacao.tsx"
 import Categorias from "../pages/categoria/Categorias"
-import NovaCategoria from "../components/categorias/NovaCategoria"
+import NovaCategoria from "../pages/categoria/NovaCategoria.tsx"
 import Dashboard from "../pages/user/Dashboard"
-import EditarTransacao from "../pages/transacao/EditarTransacao"
+import EditarTransacao from "../pages/transacao/EditarTransacao.tsx"
 import TransacoesCategoria from "../components/categorias/TransacoesCategoria"
 
 const PrivateRoute = ({redirectPath = "/login/", children}) => {
