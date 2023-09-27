@@ -153,7 +153,8 @@ def nova_transacao(request):
     user = request.user
     user_instance = User.objects.get(id=user.id)
     data = request.data
-    data['valor'] = data['valor'].replace(',', '.')
+    data['valor'] = str(data['valor']).replace(',', '.')
+    data['valor'] = float(data['valor'])
     transacao = Transacao.objects.create(
         descricao=data['descricao'],
         valor=data['valor'],

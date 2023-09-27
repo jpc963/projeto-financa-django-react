@@ -24,13 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# todo: mudar para produção
+# TODO: mudar para produção
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 SECRET_KEY = 'django-insecure-ygbcepk_q@tuke)4-)4u)q104!en7)w%yzw45ao)c%#4rkz9sh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True  # todo: mudar para False quando for para produção
+DEBUG = True  # TODO: mudar para False quando for para produção
 
 ALLOWED_HOSTS = ['*']
 
@@ -68,8 +68,8 @@ ROOT_URLCONF = 'projetoFinanca.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [BASE_DIR / 'front/build'], todo: mudar para produção
-        'DIRS': [BASE_DIR / 'front'],
+        # TODO: mudar para produção -> 'DIRS': [BASE_DIR / 'front/build']
+        'DIRS': [BASE_DIR / 'front/src'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,7 +94,7 @@ DATABASES = {
     }
 }
 
-# todo: mudar para postgresql quando for para produção
+# TODO: mudar para postgresql quando for para produção
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -139,7 +139,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# todo: mudar para produção
+# TODO: mudar para produção
 # STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / '../front/build/static']
 # STATIC_ROOT = BASE_DIR / 'staticfiles/'
