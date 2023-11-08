@@ -3,3 +3,5 @@ db.sqlite3
 ignorar
 commitChanges
 .idea
+.env
+.venv
