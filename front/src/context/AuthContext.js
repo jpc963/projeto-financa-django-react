@@ -1,25 +1,36 @@
-import React, {createContext, useState, useEffect} from "react"
+import React, { createContext, useState, useEffect } from "react"
 import jwtDecode from "jwt-decode"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const AuthContext = createContext(undefined)
 export default AuthContext
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
     let navigate = useNavigate()
-    let [authTokens, setAuthTokens] = useState(localStorage.getItem("authTokens") ? JSON.parse(localStorage.getItem("authTokens")) : null)
-    let [user, setUser] = useState(localStorage.getItem("authTokens") ? jwtDecode(localStorage.getItem("authTokens")) : null)
+    let [authTokens, setAuthTokens] = useState(
+        localStorage.getItem("authTokens")
+            ? JSON.parse(localStorage.getItem("authTokens"))
+            : null
+    )
+    let [user, setUser] = useState(
+        localStorage.getItem("authTokens")
+            ? jwtDecode(localStorage.getItem("authTokens"))
+            : null
+    )
     let [loading, setLoading] = useState(true)
     let [erroLogin, setErroLogin] = useState(null)
 
-    let loginUser = async e => {
+    let loginUser = async (e) => {
         e.preventDefault() // Evita que a página seja recarregada
         let response = await fetch("/api/token/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({username: e.target.username.value, password: e.target.password.value}),
+            body: JSON.stringify({
+                username: e.target.username.value,
+                password: e.target.password.value,
+            }),
         })
         let data = await response.json()
 
@@ -42,7 +53,7 @@ export const AuthProvider = ({children}) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({refresh: authTokens.refresh}),
+            body: JSON.stringify({ refresh: authTokens.refresh }),
         })
         let data = await response.json()
 
@@ -71,7 +82,7 @@ export const AuthProvider = ({children}) => {
 
     useEffect(() => {
         if (loading) {
-            updateToken().then(r => setLoading(false))
+            updateToken().then((r) => setLoading(false))
         }
 
         setTimeout(() => {
@@ -81,5 +92,9 @@ export const AuthProvider = ({children}) => {
         }, 240000) // 4 mins
     }, [])
 
-    return <AuthContext.Provider value={contextData}>{loading ? null : children}</AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={contextData}>
+            {loading ? null : children}
+        </AuthContext.Provider>
+    )
 }

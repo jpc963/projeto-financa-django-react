@@ -1,10 +1,10 @@
-import React, {useContext, useEffect} from "react"
+import React, { useContext, useEffect } from "react"
 import AuthContext from "../../context/AuthContext"
-import {Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const LoginPage = () => {
     let navigate = useNavigate()
-    let {loginUser, user, erroLogin} = useContext(AuthContext)
+    let { loginUser, user, erroLogin } = useContext(AuthContext)
 
     useEffect(() => {
         if (user) {
@@ -21,28 +21,57 @@ const LoginPage = () => {
                 <div className="dashboard-stats-info">
                     <form onSubmit={loginUser}>
                         <div className="d-flex flex-column">
-                            <label htmlFor="username" className="fs-5">Usuário</label>
-                            <input className="p-2 rounded bg-white"
-                                   type="text" name="username" id="username" placeholder="Digite seu usuário"/>
+                            <label
+                                htmlFor="username"
+                                className="fs-5"
+                            >
+                                Usuário
+                            </label>
+                            <input
+                                className="p-2 rounded bg-white"
+                                type="text"
+                                name="username"
+                                id="username"
+                                placeholder="Digite seu usuário"
+                            />
                         </div>
                         <div className="d-flex flex-column">
-                            <label htmlFor="password" className="fs-5">Senha</label>
-                            <input className="p-2 rounded bg-white"
-                                   type="password" name="password" id="password" placeholder="Digite sua senha"/>
+                            <label
+                                htmlFor="password"
+                                className="fs-5"
+                            >
+                                Senha
+                            </label>
+                            <input
+                                className="p-2 rounded bg-white"
+                                type="password"
+                                name="password"
+                                id="password"
+                                placeholder="Digite sua senha"
+                            />
                         </div>
-                        {erroLogin !== null &&
+                        {erroLogin !== null && (
                             <div className="campo-form">
                                 <p className="error">{erroLogin}</p>
                             </div>
-                        }
+                        )}
                         <div className="d-flex flex-column flex-lg-row align-items-center p-0">
                             <div className="text-center col-12 col-lg-7 order-2 order-lg-0 formulario-link">
-                                <Link to="/registro" className="link-dark">
-                                    Não possui uma conta? <span className="text-decoration-underline">Registrar</span>
+                                <Link
+                                    to="/registro"
+                                    className="link-dark"
+                                >
+                                    Não possui uma conta?{" "}
+                                    <span className="text-decoration-underline">
+                                        Registrar
+                                    </span>
                                 </Link>
                             </div>
                             <div className="col-12 col-lg justify-content-end d-flex">
-                                <button type="submit" className="btn-primary">
+                                <button
+                                    type="submit"
+                                    className="btn-primary"
+                                >
                                     Entrar
                                 </button>
                             </div>

@@ -4,8 +4,8 @@ import ListaTransacoes from "../../components/transacoes/ListaTransacoes"
 
 const Transacoes = () => {
     return (
-        <div className='container'>
-            <ListaTransacoes/>
+        <div className="container">
+            <ListaTransacoes />
         </div>
     )
 }
