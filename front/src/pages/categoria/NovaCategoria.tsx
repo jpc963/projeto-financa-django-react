@@ -1,27 +1,32 @@
-import {useState, useContext, useEffect} from "react"
-import {Link, useNavigate} from "react-router-dom"
+import { useState, useContext, useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
-import {z} from "zod"
-import {zodResolver} from "@hookform/resolvers/zod"
-import {useForm} from "react-hook-form"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 
 const schema = z.object({
-    nome: z.string()
+    nome: z
+        .string()
         .nonempty("O nome é obrigatório")
         .min(3, "O nome deve ter no mínimo 3 caracteres")
         .max(20, "O nome não pode ter mais de 20 caracteres")
-        .regex(/^[a-zA-Z]{3,}( ?[a-zA-Z]+){1,20}$/, "Nome inválido")
+        .regex(/^[a-zA-ZÀ-ú]{3,}( ?[a-zA-ZÀ-ú]+){1,20}$/, "Nome inválido"),
 })
 
 type FormData = z.infer<typeof schema>
 
 const NovaCategoria = () => {
     let navigate = useNavigate()
-    let {user, authTokens} = useContext(AuthContext)
-    const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
+    let { user, authTokens } = useContext(AuthContext)
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormData>({
         mode: "onBlur",
-        resolver: zodResolver(schema)
+        resolver: zodResolver(schema),
     })
 
     let criarCategoria = async (data: FormData) => {
@@ -29,7 +34,7 @@ const NovaCategoria = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer " + authTokens.access,
+                "Authorization": "Bearer " + authTokens.access,
             },
             body: JSON.stringify(data),
         })
@@ -51,20 +56,40 @@ const NovaCategoria = () => {
                 <form onSubmit={handleSubmit(criarCategoria)}>
                     <div className="dashboard-stats-info">
                         <div className="d-flex flex-column">
-                            <label htmlFor="descricao" className="fs-5">Nome</label>
-                            <input className="p-2 rounded bg-white"
-                                   type="text" name="nome" id="nome" placeholder="(Max. 20 caracteres)"
-                                   {...register("nome")}/>
-                            {errors.nome && <p className="text-danger">{errors.nome.message}</p>}
+                            <label
+                                htmlFor="descricao"
+                                className="fs-5"
+                            >
+                                Nome
+                            </label>
+                            <input
+                                className="p-2 rounded bg-white"
+                                type="text"
+                                name="nome"
+                                id="nome"
+                                placeholder="(Max. 20 caracteres)"
+                                {...register("nome")}
+                            />
+                            {errors.nome && (
+                                <p className="text-danger">
+                                    {errors.nome.message}
+                                </p>
+                            )}
                         </div>
                         <div className="d-flex flex-column flex-lg-row align-items-center p-0">
                             <div className="text-center col-12 col-lg-7 order-2 order-lg-0 formulario-link">
-                                <Link to="/registro" className="link-dark">
+                                <Link
+                                    to="/registro"
+                                    className="link-dark"
+                                >
                                     Cancelar
                                 </Link>
                             </div>
                             <div className="col-12 col-lg">
-                                <button type="submit" className="btn-primary">
+                                <button
+                                    type="submit"
+                                    className="btn-primary"
+                                >
                                     Concluído
                                 </button>
                             </div>
