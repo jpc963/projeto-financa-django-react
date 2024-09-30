@@ -47,7 +47,7 @@ const NovaTransacao = () => {
     })
 
     let novaTransacao = async (data: FormData) => {
-        await fetch("api/nova-transacao", {
+        await fetch("http://127.0.0.1:8000/api/nova-transacao", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

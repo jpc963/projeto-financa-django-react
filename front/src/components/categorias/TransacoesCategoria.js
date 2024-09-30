@@ -11,7 +11,7 @@ const TransacoesCategoria = () => {
 
 
     let getInformacaoCategoria = async () => {
-        let response = await fetch(`/api/categoria/${categoriaParam.nome}`, {
+        let response = await fetch(`http://127.0.0.1:8000/api/categoria/${categoriaParam.nome}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const TransacoesCategoria = () => {
     }
 
     let getTransacoes = async () => {
-        let response = await fetch("/api/transacoes", {
+        let response = await fetch("http://127.0.0.1:8000/api/transacoes", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

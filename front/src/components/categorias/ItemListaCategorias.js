@@ -7,7 +7,7 @@ const ItemListaCategorias = ({categoria}) => {
     let {authTokens} = useContext(AuthContext)
 
     let excluirCategoria = async () => {
-        await fetch(`/api/excluir-categoria/${categoria.id}`, {
+        await fetch(`http://127.0.0.1:8000/api/excluir-categoria/${categoria.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

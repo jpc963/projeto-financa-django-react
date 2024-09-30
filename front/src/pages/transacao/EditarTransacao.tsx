@@ -35,7 +35,7 @@ const EditarTransacao = () => {
     })
 
     let edicaoCompleta = async (data: FormData) => {
-        await fetch(`/api/transacoes/${transacao.id}/editar`, {
+        await fetch(`http://127.0.0.1:8000/api/transacoes/${transacao.id}/editar`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const EditarTransacao = () => {
     }
 
     let pegarTransacao = async () => {
-        let response = await fetch("/api/transacoes", {
+        let response = await fetch("http://127.0.0.1:8000/api/transacoes", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

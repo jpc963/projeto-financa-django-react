@@ -10,7 +10,7 @@ const ItemListaTransacoes = ({transacao}) => {
     }
 
     let excluirTransacao = async () => {
-        await fetch(`/api/excluir-transacao/${transacao.id}`, {
+        await fetch(`http://127.0.0.1:8000/api/excluir-transacao/${transacao.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

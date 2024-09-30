@@ -10,7 +10,7 @@ const ListaTransacoes = () => {
     let {authTokens, user} = useContext(AuthContext)
 
     let getListaTransacoes = async () => {
-        let response = await fetch(`api/transacoes`, {
+        let response = await fetch(`http://127.0.0.1:8000/api/transacoes`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
