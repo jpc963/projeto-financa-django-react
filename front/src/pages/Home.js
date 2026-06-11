@@ -1,12 +1,8 @@
-import LoginPage from "./user/LoginPage"
-import Dashboard from "./user/Dashboard"
+import LoginPage from "./user/LoginPage";
+import Dashboard from "./user/Dashboard";
 
 const Home = () => {
-    return localStorage.getItem("authTokens") === null ? (
-        <LoginPage />
-    ) : (
-        <Dashboard />
-    )
-}
+  <LoginPage />;
+};
 
-export default Home
+export default Home;
